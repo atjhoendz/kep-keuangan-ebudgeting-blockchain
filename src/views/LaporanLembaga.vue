@@ -2,31 +2,31 @@
   <CRow>
     <CCol sm="12" md="6" lg="5">
       <card-list-data
-        title="Data Anggaran"
-        :items="itemsAnggaran"
+        title="Laporan Lembaga"
+        :items="itemsLembaga"
         :fields="fields"
-        :showButton="false"
+        routeEndpoint="laporan-lembaga"
       ></card-list-data>
     </CCol>
   </CRow>
 </template>
 
 <script>
-import CardListData from "../../components/CardListData.vue";
-import { itemsAnggaran } from "../../sample-data/data";
+import CardListData from "../components/CardListData.vue";
+import { itemsLembaga } from "../sample-data/data";
 
 const fields = [
   { key: "no", label: "No.", _style: "width:10px" },
   "nama-lembaga",
-  "sisa-anggaran",
+  "jumlah-anggaran",
 ];
 
 export default {
-  name: "DataAnggaran",
+  name: "LaporanLembaga",
   components: { CardListData },
   data() {
     return {
-      itemsAnggaran,
+      itemsLembaga,
       fields,
     };
   },

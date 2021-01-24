@@ -6,16 +6,16 @@
         v-if="showButton"
         color="primary"
         class="d-md-down-none"
-        :to="urlTambahData"
-        >Tambah Data</CButton
+        :to="urlCetak"
+        >Cetak</CButton
       >
       <CButton
         v-if="showButton"
         color="primary"
         class="d-lg-none"
-        :to="urlTambahData"
+        :to="urlCetak"
       >
-        <CIcon name="cil-plus" />
+        <CIcon name="cil-print" />
       </CButton>
     </CCardHeader>
     <CCardBody>
@@ -66,8 +66,8 @@ export default {
     },
   },
   computed: {
-    urlTambahData: function() {
-      return this.routeEndpoint + "/tambah";
+    urlCetak: function() {
+      return `/${this.routeEndpoint}/cetak`;
     },
   },
 };

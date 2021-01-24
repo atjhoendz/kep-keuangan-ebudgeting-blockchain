@@ -8,12 +8,10 @@ const TheContainer = () => import('@/containers/TheContainer')
 const Dashboard = () => import('@/views/Dashboard')
 const LoginPage = () => import('@/views/auth/LoginPage')
 
-// Data Pemohon
-const DataPemohon = () => import('@/views/data-pemohon/DataPemohon')
-const TambahDataPemohon = () => import('@/views/data-pemohon/TambahData')
-
-// Data Anggaran
-const DataAnggaran = () => import('@/views/data-anggaran/DataAnggaran')
+const LaporanLembaga = () => import('@/views/LaporanLembaga')
+const LaporanAnggaran = () => import('@/views/LaporanAnggaran')
+const LaporanEstimasi = () => import('@/views/LaporanEstimasi')
+const LaporanBiayaRiil = () => import('@/views/LaporanBiayaRiil')
 
 
 Vue.use(Router)
@@ -37,40 +35,26 @@ function configRoutes () {
           path: 'dashboard',
           name: 'Dashboard',
           component: Dashboard
-        }
-      ]
-    },
-    {
-      path: '/data-pemohon',
-      name: 'Data Pemohon',
-      redirect: '/data-pemohon',
-      component: TheContainer,
-      children: [
-        {
-          path: '/',
-          component: DataPemohon
         },
         {
-          path: 'tambah',
-          name: 'Tambah Data Pemohon',
-          component: TambahDataPemohon
-        }
-      ]
-    },
-    {
-      path: '/data-anggaran',
-      name: 'Data Anggaran',
-      redirect: '/data-anggaran',
-      component: TheContainer,
-      children: [
-        {
-          path: '/',
-          component: DataAnggaran
+          path: 'laporan-lembaga',
+          name: 'Laporan Lembaga',
+          component: LaporanLembaga
         },
         {
-          path: 'tambah',
-          name: 'Tambah Data Anggaran',
-          component: TambahDataPemohon
+          path: 'laporan-anggaran',
+          name: 'Laporan Anggaran',
+          component: LaporanAnggaran
+        },
+        {
+          path: 'laporan-estimasi',
+          name: 'Laporan Estimasi',
+          component: LaporanEstimasi
+        },
+        {
+          path: 'laporan-biaya-riil',
+          name: 'Laporan Biaya Riil',
+          component: LaporanBiayaRiil
         }
       ]
     },

@@ -10,35 +10,31 @@ export default [
       },
       {
         _name: 'CSidebarNavTitle',
-        _children: ['Master']
+        _children: ['Laporan']
       },
       {
-        _name: 'CSidebarNavDropdown',
-        name: 'Data Anggaran',
-        route: '/data-anggaran',
+        _name: 'CSidebarNavItem',
+        name: 'Laporan Lembaga',
+        to: '/laporan-lembaga',
+        icon: 'cil-building',
+      },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'Laporan Anggaran',
+        to: '/laporan-anggaran',
         icon: 'cil-dollar',
-        items: [
-          {
-            name: 'Lihat Data',
-            to: '/data-anggaran'
-          },
-        ]
       },
       {
-        _name: 'CSidebarNavDropdown',
-        name: 'Data Pemohon',
-        route: '/data-pemohon',
-        icon: 'cil-user',
-        items: [
-          {
-            name: 'Lihat Data',
-            to: '/data-pemohon'
-          },
-          {
-            name: 'Tambah Data',
-            to: '/data-pemohon/tambah'
-          }
-        ]
+        _name: 'CSidebarNavItem',
+        name: 'Laporan Estimasi',
+        to: '/laporan-estimasi',
+        icon: 'cil-wallet',
+      },
+      {
+        _name: 'CSidebarNavItem',
+        name: 'Laporan Biaya Riil',
+        to: '/laporan-biaya-riil',
+        icon: 'cil-money',
       },
     ]
   }

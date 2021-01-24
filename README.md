@@ -1,8 +1,8 @@
-# Pemohon E-Budgeting Blockchain
+# Kepala Keuangan E-Budgeting Blockchain
 
 ## Description
 
-Pemohon Page E-Budgeting Blockchain using Core UI
+Kepala Keuangan Page E-Budgeting Blockchain using Core UI
 
 ## Usage
 
