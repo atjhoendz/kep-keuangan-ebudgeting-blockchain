@@ -11,13 +11,7 @@
 </template>
 
 <script>
-import { itemsPemohon } from "../sample-data/data";
 export default {
   name: "Dashboard",
-  computed: {
-    jumlahDataPemohon() {
-      return `${itemsPemohon.length}`;
-    },
-  },
 };
 </script>
