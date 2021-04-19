@@ -29,6 +29,7 @@
         sorter
         pagination
         border
+        :loading="isLoading"
       >
         <template #no="{index}">
           <td>
@@ -42,7 +43,7 @@
 
 <script>
 export default {
-  name: "CardListData",
+  name: 'CardListData',
   props: {
     title: {
       type: String,
@@ -64,13 +65,17 @@ export default {
       type: Array,
       required: true,
     },
+    isLoading: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     urlCetak: function() {
-      return `/${this.routeEndpoint}/cetak`;
+      return `/${this.routeEndpoint}/cetak`
     },
   },
-};
+}
 </script>
 
 <style></style>
