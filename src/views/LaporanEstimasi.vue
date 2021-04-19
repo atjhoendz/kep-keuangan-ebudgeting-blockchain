@@ -4,41 +4,63 @@
       <card-list-data
         title="Laporan Estimasi"
         routeEndpoint="laporan-estimasi"
-        :items="itemsEstimasi"
-        :fields="fields"
+        :items="items"
+        :fields="fieldsEstimasi"
+        :isLoading="isLoading"
       ></card-list-data>
     </CCol>
+    <toast-msg :listToasts="listToasts" />
   </CRow>
 </template>
 
 <script>
-import CardListData from "../components/CardListData.vue";
-import { itemsEstimasi } from "../sample-data/data";
-
-const fields = [
-  { key: "no", label: "No.", _style: "width:10px" },
-  { key: "tanggal-berangkat", _style: "text-align:center" },
-  { key: "nama-pemohon", _style: "text-align:center" },
-  { key: "dari-lembaga", _style: "text-align:center" },
-  { key: "jenis-pmk", label: "Jenis PMK" },
-  { key: "asal", _style: "text-align:center" },
-  { key: "tujuan", _style: "text-align:center" },
-  { key: "banyak", _style: "text-align:center" },
-  { key: "keterangan", _style: "text-align:center" },
-  { key: "total", _style: "text-align:center" },
-  { key: "status-pemohon", _style: "text-align:center" },
-];
+import CardListData from '../components/CardListData.vue'
+import ToastMsg from '../components/ToastMsg'
+import { LaporanService } from '../services/laporan.service'
+import { fieldsEstimasi } from './fields'
 
 export default {
-  name: "LaporanEstimasi",
-  components: { CardListData },
+  name: 'LaporanEstimasi',
+  components: { CardListData, ToastMsg },
   data() {
     return {
-      itemsEstimasi,
-      fields,
-    };
+      items: [],
+      fieldsEstimasi,
+      listToasts: [],
+      isLoading: false,
+    }
   },
-};
+  methods: {
+    async getEstimasiData() {
+      this.isLoading = true
+      try {
+        const dataEstimasi = await LaporanService.getEstimasiData()
+
+        this.items = dataEstimasi.map(item => {
+          item.Record.total = parseInt(item.Record.total).toLocaleString('id', {
+            style: 'currency',
+            currency: 'IDR',
+          })
+          return {
+            key: item.Key,
+            ...item.Record,
+            nama_pemohon: item.Record.data_pemohon.nama,
+            status_berkas: item.Record.data_pemohon.status_berkas,
+          }
+        })
+      } catch (err) {
+        this.listToasts.push({
+          message: 'Terjadi masalah. Data estimasi tidak berhasil didapatkan.',
+          color: 'danger',
+        })
+      }
+      this.isLoading = false
+    },
+  },
+  async mounted() {
+    await this.getEstimasiData()
+  },
+}
 </script>
 
 <style></style>
