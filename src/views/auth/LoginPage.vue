@@ -37,6 +37,7 @@
                     v-model.trim="$v.password.$model"
                     :is-valid="validate('password')"
                     invalid-feedback="Password harus diisi."
+                    @keyup.enter="makeLogin"
                   >
                     <template #prepend-content
                       ><CIcon name="cil-lock-locked"
