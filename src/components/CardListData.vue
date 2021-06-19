@@ -2,11 +2,7 @@
   <CCard>
     <CCardHeader class="d-flex">
       <span class="h4 mr-auto my-auto">{{ title }}</span>
-      <CButton
-        v-if="showButton"
-        color="primary"
-        class="d-md-down-none"
-        :to="urlCetak"
+      <CButton v-if="showButton" color="primary" class="d-md-down-none"
         >Cetak</CButton
       >
       <CButton
@@ -68,11 +64,6 @@ export default {
     isLoading: {
       type: Boolean,
       default: false,
-    },
-  },
-  computed: {
-    urlCetak: function() {
-      return `/${this.routeEndpoint}/cetak`
     },
   },
 }
