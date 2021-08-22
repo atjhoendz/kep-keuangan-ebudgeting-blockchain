@@ -7,6 +7,7 @@
         :fields="fieldsLembaga"
         routeEndpoint="laporan-lembaga"
         :isLoading="isLoading"
+        :showButton="false"
       ></card-list-data>
     </CCol>
     <toast-msg :listToasts="listToasts" />

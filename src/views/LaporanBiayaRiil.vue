@@ -7,6 +7,7 @@
         :fields="fieldsBiayaRiil"
         routeEndpoint="laporan-biaya-riil"
         :isLoading="isLoading"
+        :showButton="false"
       >
       </card-list-data>
     </CCol>

@@ -7,6 +7,7 @@
         :fields="fieldsAnggaran"
         routeEndpoint="laporan-anggaran"
         :isLoading="isLoading"
+        :showButton="false"
       ></card-list-data>
     </CCol>
     <toast-msg :listToasts="listToasts" />
